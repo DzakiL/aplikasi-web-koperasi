@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('simpanans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            // $table->string('user_name');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nama');
+            $table->string('no_anggota');
+            $table->date('transfer');
+            $table->date('tanggal');
+            $table->string('uraian');
+            $table->string('kode', '1');
+            $table->integer('debit');
+            $table->integer('kredit')->nullable();
+            $table->integer('saldo');
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('simpanans');
     }
 };
